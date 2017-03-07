@@ -1,0 +1,70 @@
+[Main]
+
+Customer Ref:IT000000
+Title: Mr
+Forename: Bill
+Middlenames:[Null]
+Surname: Smith
+Date of Birth Day:15
+Date of Birth Month:06
+Date of Birth Year:1979
+Email Address:bill.smith@ntlworld.com
+CLI: 01273 929 232
+Mobile No: 07756454564
+Personal Password:secret123
+Marketing?: No
+Phone: No
+Email: No
+Text: No
+Letter: No
+
+[Debit Card Details]
+
+Direct Debit Status: Live
+Account Holder: Mr B D Smith
+Sort Code: 11 12 13
+Account Number:12345678
+
+[Registered Card Details]
+
+Card Type: Visa Debit
+Card No. 1234567887654321
+Start Date Day: 08
+Start Date Month:2012
+Expiry Date Day:07
+Expiry Date Month:2019
+Issue No: [Null]
+1st Line Of Address: 21 High Street
+Registered Postcode: BN2 1JK
+
+[Addresses]
+
+Number of Addresses: 2
+
+  <Address 1>
+
+  House/Flat No:21
+  Street:High Street
+  Town:Hove
+  City:Brighton & Hove
+  County:East Sussex
+  Postcode:BN2 1JK
+  Address No: 1
+  Primary: Yes
+
+  <Address 2>
+  House/Flat No:45
+  Street:Descent Drive
+  Town:Poole Valley
+  City:Birmingham
+  County:West Midlands
+  Postcode:B43 3JH
+  Address No: 2
+  Primary:No
+
+[Authorised Persons]
+
+Full Name: Helen Carter
+Relationship:Mother
+Password:Dream
+Password Hint:Thinking

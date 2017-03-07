@@ -1,0 +1,19 @@
+var character =event.charCode;
+  var el=$("#phoneNumber");
+  var val = $(el).val();
+
+  if(character==35){
+
+    console.log(val.slice(0, el.selectionStart).length);
+    return String.fromCharCode(character);
+  }else{
+    if(character==42){
+      console.log(val.slice(0, el.selectionStart).length);
+      return String.fromCharCode(character);
+    }else{
+      if(character >= 48 && character <= 57){
+        console.log(val.slice(0, el.selectionStart).length);
+        return String.fromCharCode(character);
+      }
+    }
+  }

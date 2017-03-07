@@ -1,0 +1,71 @@
+ID: 1
+Date: 01/06/2016
+Time: 09:00
+Subject: Bill Production
+Note:Bill Produced for £50 - Due on 14/06/2016
+Agent:Lucy Turner
+Done:No
+Outcome:No Outcome
+
+ID: 2
+Date: 01/07/2016
+Time: 09:00
+Subject: Bill Production
+Note:Bill Produced for £100 - Due on 14/07/2016
+Agent:Alix Wooler
+Done:No
+Outcome:No Outcome
+
+ID: 3
+Date: 01/08/2016
+Time: 09:00
+Subject: Bill Production
+Note:Bill Produced for £150 - Due on 14/08/2016
+Agent:Lucy Turner
+Done:No
+Outcome:No Outcome
+
+ID: 4
+Date: 01/09/2016
+Time: 09:00
+Subject: Bill Production
+Note:Bill Produced for £200 - Due on 14/09/2016
+Agent:Alix Wooler
+Done:No
+Outcome:No Outcome
+
+ID: 5
+Date: 20/09/2016
+Time: 12:00
+Subject: Transfer to Collections
+Note:No response from customer -transfer to collections
+Agent:Lucy Turner
+Done:Yes
+Outcome:No Outcome
+
+ID: 6
+Date: 20/09/2016
+Time: 13:00
+Subject: Acknowledgment from  collections
+Note:Account With Collections
+Agent:Chloe Carter
+Done:Yes
+Outcome:No Outcome
+
+ID:7
+Date:24/09/2016
+Time:12:45
+Subject:Send Letter
+Note:	Sent Letter to customer advising Debt of £200 -restriction on account
+Agent:Alice Woolley
+Done:Yes
+Outcome:Letter Sent - No Reply
+
+ID:8
+Date:01/10/2016
+Time:13:00
+Subject:Send 2nd Letter
+Note:Sent another Letter to customer advising Debt of £200
+Agent:Jenna harvey
+Done:Yes
+Outcome:Customer Advised needed payment plan of £50PCM starting today on 1st of Every Month- restriction in force until full balance is paid - Paid £50 today

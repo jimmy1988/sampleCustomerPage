@@ -1,0 +1,15 @@
+ID:1
+Customer Ref:IT123456
+Package:iTalk All The Time
+CLI:021562121545
+Activation Date:27/06/2012
+Termination Date:28/06/2013
+Status:Terminated
+
+ID:1
+Customer Ref: IT987654
+Package:iTalk 3 Gold
+CLI:14512314564121
+Activation Date:29/06/2013
+Termination Date:30/06/2014
+Status:Terminated

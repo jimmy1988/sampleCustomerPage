@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>iTalk - Customer Details</title>
+		<link type="text/css" rel="stylesheet" href="css/reset.css"/>
+		<link type="text/css" rel="stylesheet" href="css/italk.css"/>
+		<link type="text/css" rel="stylesheet" href="css/font-awesome.css"/>
+		<link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico"/>
+		<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+		<script>if (!window.jQuery) { document.write('<script src="js/jquery.js"><\/script>'); }</script>
+		<script type="text/javascript" src="js/jquery.tablesorter.js"></script>
+		<script type="text/javascript" src="js/tableSort.js"></script>
+	</head>
+	<body>
+
+		<!--Start of Save Changes Banner-->
+		<div id="saveChangesBanner">
+			<span id="closeSaveBanner"><i class="fa fa-times" aria-hidden="true"></i></span>
+			<input type="button" id="saveChanges" class="buttonBasic" value="Save Changes"/>
+		</div>
+		<!--End of Save Changes Banner-->
+
+		<!--Start of Right Sliding Notification Menu-->
+		<div id="notificationsPane" class="sideNav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<h2><i class="fa fa-bell-o" aria-hidden="true"></i>&nbsp;My Notifications</h2>
+			<div id="notificationsMain">
+				<ol>
+					<li>Change Address for lucy <i class="fa fa-share" aria-hidden="true"></i></li>
+					<li>Contact customer IT000000</li>
+					<li>Purchase more tea</li>
+				</ol>
+			</div>
+		</div>
+		<!--End of Right Sliding Notification Menu-->
+
+
+		<!--Start of Container-->
+		<div id="container">
+
+			<!--Start of Top Menu-->
+			<div id="menuTop">
+				<a href="#" title="Go Home" id="logoMain"><img id="logoTop" src="images/logo.gif"/></a>
+				<ul class="top-level-menu" id="menuCenter">
+					<li>
+							<a href="#">Menu 1 <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+							<ul class="second-level-menu">
+								<li><a href="#">2nd Menu 1</a></li>
+								<li>
+									<a href="#">2nd Menu 2 <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+									<ul class="third-level-menu">
+										<li><a href="#">3rd Menu 1</a></li>
+										<li><a href="#">3rd Menu 2</a></li>
+										<li><a href="#">3rd Menu 3</a></li>
+									</ul>
+								</li>
+								<li><a href="#">2nd Menu 3</a></li>
+							</ul>
+					</li>
+					<li><a href="#">Menu 2</a></li>
+					<li>
+							<a href="#">Menu 3 <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+							<ul class="second-level-menu">
+								<li>
+									<a href="#">2nd Menu 1 <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+									<ul class="third-level-menu">
+										<li><a href="#">3rd Menu 1</a></li>
+										<li><a href="#">3rd Menu 2</a></li>
+										<li><a href="#">3rd Menu 3</a></li>
+									</ul>
+								</li>
+								<li><a href="#">2nd Menu 2</a></li>
+								<li><a href="#">2nd Menu 3</a></li>
+							</ul>
+					</li>
+					<li><a href="#">Menu 4</a></li>
+					<li>
+						<a href="#">Menu 5 <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+						<ul class="second-level-menu">
+							<li><a href="#">2nd Menu 1</a></li>
+							<li><a href="#">2nd Menu 2</a></li>
+							<li>
+								<a href="#">2nd Menu 3 <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+								<ul class="third-level-menu">
+									<li><a href="#">3rd Menu 1</a></li>
+									<li><a href="#">3rd Menu 2</a></li>
+									<li><a href="#">3rd Menu 3</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+				</ul>
+				<ul id="userProfile">
+					<!-- <span id="tasksContainer">
+						<a href="#" id="tasks" title="Show All Tasks"><i class="fa fa-list" aria-hidden="true"></i></a>
+						<span id="taskNumbers"></span>
+					</span> -->
+					<span id="notificationContainer">
+						<a href="#" id="notifications" title="Show Notifications"><i class="fa fa-bell-o" aria-hidden="true"></i></a>
+						<span id="notificationNumbers"></span>
+					</span>
+					<span id="searchContainer">
+							<input type="text" name="searchByIDMain" id="searchByIDMain" placeholder="Search By ID"/>
+							<button id="clearMainSearch" title="Clear This Box">
+								<i class="fa fa-times hide" id="clearSearchCross" aria-hidden="true"></i>
+							</button>
+							<button id="searchMain" title="Start Search or Press Enter">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</button>
+					</span>
+					<li>
+							<a href="#" id="userProfileExpand"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+							<ul id="userProfileContainer">
+								<li>
+									<p>Logged In As <span id="userName"></span></p>
+								</li>
+								<li>
+									<a href="#" id="userSettings"><i class="fa fa-cog" aria-hidden="true"></i>Account</a>
+								</li>
+								<li>
+									<a href="#" id="userSignOut"><i class="fa fa-sign-out" aria-hidden="true"></i>Log Out</a>
+								</li>
+							</ul>
+					</li>
+
+				</ul>
+			</div>
+			<!--End of Top Menu-->
+
+			<!--Start of Main Content Outer Layer-->
+			<div id="contentOuter">
+
+				<!--Start of Main Content Left-->
+				<div id="contentLeft">
+					<h1 class="pageTitleMain">View Customer Details</h1>
+
+					<div id="customerDetailsErrorsContainer">
+						<div id="timesLeft" class="messageLeft">
+							<i class="fa fa-times" aria-hidden="true"></i>
+						</div>
+						<div id="errorMessagesRight" class="messageRight">
+							<p id="errorMessagesInstructions">You have the following errors, these need to be actioned: </p>
+							<ul id="errorMessages" class="messagesList">
+								<!--Autofill with javascript-->
+							</ul>
+						</div>
+					</div>
+					<div id="messages">
+						<div id="warningMessagesContainer">
+							<div id="triangleLeft" class="messageLeft">
+								<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+							</div>
+							<div id="warningMessageRight" class="messageRight">
+								<p id="warningMessagesInstructions">You have the following warnings, these need to be actioned/looked into: </p>
+								<ul id="warningMessages" class="messagesList">
+									<!--Autofill with javascript-->
+								</ul>
+							</div>
+						</div>
+						<div id="successMessagesContainer">
+							<div id="tickLeft" class="messageLeft">
+								<i class="fa fa-check" aria-hidden="true"></i>
+							</div>
+							<div id="successMessageRight" class="messageRight">
+								<strong id="messageInstructionSuccess">(Click to fade out)</strong>
+								<p id="successMessage">
+									<!--Autofill with javascript-->
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!--Start of Customer Details Container-->
+					<div id="customerDetailsContainer">
+						<!--Start of Tabs-->
+						<div class="tab tabActive" id="detailsTab">Details</div>
+						<div class="tab" id="accountHistoryTab">Account History</div>
+						<div class="tab" id="packageLineTab">Package/Line Details</div>
+						<div class="tab"id="tasksTab">Tasks</div>
+						<div class="tab lastTab" id="complaintsTab">Complaints</div>
+						<!--End of Tabs-->
+
+						<!--Start of Tab Content-->
+						<div id="tabContent">
+
+							<!--Start of Customer Details Tab-->
+							<div id="customerDetailsContent" class="tabContentShow">
+								<h2 id="customerDetailsTitle" class="tabTitle">Customer Details</h2>
+								<!--Start of Customer Details Form-->
+								<form id="customerDetailsForm">
+
+									<div id="customerDetailsContentTopLeft">
+											<label>Customer Ref.</label>
+											<span id="customerReference"></span>
+											<div id="passPhraseContainer">
+												<label>PassPhrase</label>
+												<input type="text" id="passPhrase" placeholder="Passphrase here" readonly/>
+												<button id="changePassPhrase" title="Click Here to Change the Customer Pass Phrase"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+												<p id="passPhraseHintContainer"><label>Hint: </label><span id="passPhraseHint"></span></p>
+											</div>
+									</div>
+									<div id="customerDetailsContentTopRight">
+										<label>Balance Outstanding</label>
+										<!--Red for minus figures-->
+										<!--Green for Positive figures-->
+										<!--Black for Zero-->
+										<span id="balanceContainer">£<span id="balance"></span></span>
+										<input type="button" id="takePayment" class="buttonBasic" value="Take Payment"/>
+										<!--<p id="furtherInstructions">Please ask the customer if they wish to make a payment today</p>-->
+									</div>
+
+									<!--Start Of Customer Details Container-->
+									<div id="customerDetailsContentMain">
+
+										<!--Start of the personal details fieldset-->
+										<fieldset id="personalDetailsContainer">
+											<legend>Personal Details</legend>
+											<p id="customerName">
+												<label>Customer Name</label>
+												<select id="customerNameTitle" disabled>
+													<option value="No Selection" selected="selected" >Title</option>
+													<option value="Mr">Mr</option>
+													<option value="Mrs">Mrs</option>
+													<option value="Miss">Miss</option>
+													<option value="Ms">Ms</option>
+													<option value="Dr">Dr</option>
+													<option value="Lord">Lord</option>
+													<option value="Lady">Lady</option>
+													<option value="Sir">Sir</option>
+													<option value="Dame">Dame</option>
+												</select>
+												<input type="text" id="customerNameForename" placeholder="Forename" readonly/>
+												<input type="text" id="customerNameMiddlenames" placeholder="Middlename(s)" readonly/>
+												<input type="text" id="customerNameSurname" placeholder="Surname" readonly/>
+											</p>
+											<div id="personalDetailsLeft">
+												<p id="dateOfBirth">
+													<label>Date Of Birth</label>
+													<input type="text" class="dateOfBirth" id="dateOfBirthDay" maxlength="2" placeholder="DD" readonly/>
+													<input type="text" class="dateOfBirth" id="dateOfBirthMonth" maxlength="2" placeholder="MM" readonly/>
+													<input type="text" class="dateOfBirth" id="dateOfBirthYear" maxlength="4" placeholder="YYYY" readonly/>
+												</p>
+												<p id="emailAddressContainer">
+													<label>Email Address</label>
+													<input type="email" id="emailAddress" placeholder="Email Address" readonly/>
+													<a href="#" id="sendEmail" title="Send an Email To This Customer"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+												</p>
+											</div>
+											<div id="personalDetailsRight">
+												<p id="phoneNumberCLIContainer">
+													<label>Phone No/CLI</label>
+													<input type="text" id="phoneNoCLI" placeholder="Phone No/CLI" readonly/>
+													<a href="#" id="callPhone" title="Call this customer on their landline phone"><i class="fa fa-phone-square" aria-hidden="true"></i></a>
+												</p>
+												<p id="mobileNumberContainer">
+													<label>Mobile No.</label>
+													<input type="text" id="mobileNumber" maxlength="12" placeholder="Mobile Number" readonly/>
+													<a href="#" id="callMobile" title="Call this customer on their mobile"><i class="fa fa-mobile" aria-hidden="true"></i></a>
+												</p>
+										</div>
+										<div class="clear"></div>
+										<div id="marketingPreferences">
+											<label>Marketing Preferences</label>
+											<p id="marketingPreferencesPara">
+												Would the customer like to recieve communications from iTalk Affiliates Ltd?
+											</p>
+											<span id="marketingPreferencesOptions" class="switch">
+												<input type="radio" id="marketingYes" name="marketingYesNo" value="Yes"/>
+												<input type="radio" id="marketingNo" name="marketingYesNo" value="No"/>
+												<label for="marketingYes" id="marketingYesLabel" class="cb-enable cb-enableMe"/><span readonly>Yes</span></label>
+												<label for="marketingNo" id="marketingNoLabel" class="cb-disable cb-disableMe"/><span readonly>No</span></label>
+											</span>
+											<br>
+											<p id="marketingMethodOptionPara">How would the customer like to be contacted?</p>
+											<div id="marketingMethodOptions">
+												<span id="marketingPhoneSelect">
+													Phone
+													<p class="field switch" id="phoneOptionSelectContainer">
+    												<label id="phoneSelectionYes" class="cb-enable cb-enableMe"><span readonly>Yes</span></label>
+    												<label id="phoneSelectionNo" class="cb-disable cb-disableMe"><span readonly>No</span></label>
+    												<input type="checkbox" id="checkboxPhoneMarketing" class="checkbox" name="marketingYesNo" />
+													</p>
+												</span>
+												<span id="marketingEmailSelect">
+													Email
+													<p class="field switch" id="emailOptionSelectContainer">
+														<label id="emailSelectionYes" class="cb-enable cb-enableMe"><span readonly>Yes</span></label>
+														<label id="emailSelectionNo" class="cb-disable cb-disableMe"><span readonly>No</span></label>
+														<input type="checkbox" id="checkboxEmailMarketing" class="checkbox" name="marketingYesNo" />
+													</p>
+												</span>
+												<span id="marketingTextSelect">
+													Text
+													<p class="field switch" id="textOptionSelectContainer">
+														<label id="textSelectionYes" class="cb-enable cb-enableMe"><span readonly>Yes</span></label>
+														<label id="textSelectionNo" class="cb-disable cb-disableMe"><span readonly>No</span></label>
+														<input type="checkbox" id="checkboxText" class="checkbox" name="marketingYesNo" />
+													</p>
+												</span>
+												<span id="marketingLetterSelect">
+													Letter
+													<p class="field switch" id="letterOptionSelectContainer">
+														<label id="letterSelectionYes" class="cb-enable cb-enableMe"><span readonly>Yes</span></label>
+														<label id="letterSelectionNo" class="cb-disable cb-disableMe"><span readonly>No</span></label>
+														<input type="checkbox" id="checkboxLetter" class="checkbox" name="marketingYesNo" />
+													</p>
+												</span>
+											</div>
+											</div>
+										</fieldset>
+										<!--End of Peronal Details-->
+
+										<!--Start of Direct Debit Details-->
+										<fieldset id="directDebitDetails" disabled>
+											<legend>Direct Debit Details</legend>
+											<p id="directDebitStatusPara">
+												<label>Direct Debit Status</label>
+												<select id="directDebitStatus">
+													<option value="Live">Live</option>
+													<option value="Hold">Hold</option>
+													<option value="Cancelled">Cancelled</option>
+													<option value="Postponed">Postponed</option>
+												</select>
+											</p>
+											<p id="accountHolderPara">
+												<label>Account Holder</label>
+												<input type="text" id="accountHolder" readonly/>
+											</p>
+											<p id="sortCodePara">
+												<label>Sort Code</label>
+												<input type="text" id="sortCode1" class="sortCode" maxlength="2" readonly/>
+												<input type="text" id="sortCode2" class="sortCode" maxlength="2" readonly/>
+												<input type="text" id="sortCode3" class="sortCode" maxlength="2" readonly/>
+											</p>
+											<p id="accountNoPara">
+												<label>Account No.</label>
+												<input type="text" maxlength="8" id="accountNumber" readonly/>
+											</p>
+										</fieldset>
+										<!--End Of Direct Debit Details-->
+
+										<!--Start of Card Details-->
+										<fieldset id="debitCreditCardDetails">
+											<legend>Debit/Credit Card Details</legend>
+											<p id="cardTypePara">
+												<label>Card Type</label>
+												<select id="cardTypeSelect" disabled>
+													<option value="No Select">Please Select..</option>
+													<option value="Visa Debit">Visa Debit</option>
+													<option value="Visa Credit">Visa Credit</option>
+													<option value="Mastercard">Mastercard</option>
+													<option value="Switch">Switch</option>
+													<option value="Solo">Solo</option>
+													<option value="American Express">American Express</option>
+													<option value="Other">Other</option>
+												</select>
+												<input type="text" id="otherCardType" class="elementHide" readonly/>
+											</p>
+											<p id="cardNoPara">
+												<label>Card No.</label>
+												<input type="text" id="cardNumber" maxlength="16" readonly/>
+											</p>
+											<p id="startDatePara">
+												<label>Start Date</label>
+												<input type="text" id="startDateMM" class="startDate" placeholder="MM" maxlength="2" readonly/>
+												<input type="text" id="startDateYYYY" class="startDate" placeholder="YYYY" maxlength="4" readonly/>
+											</p>
+											<p id="expiryDatePara">
+												<label>Expiry Date</label>
+												<input type="text" id="expiryDateMM" class="expiryDate" placeholder="MM" maxlength="2" readonly/>
+												<input type="text" id="expiryDateYYYY" class="expiryDate" placeholder="YYYY" maxlength="4" readonly/>
+											</p>
+											<p id="issueNoPara">
+												<label>Issue No.</label>
+												<input type="text" maxlength="4" id="issueNumber" readonly/>
+											</p>
+											<p id="firstLineOfAddressPara">
+												<label>1st Line Of Address</label>
+												<input type="text" id="firstLineOfAddress" readonly/>
+											</p>
+											<p id="registeredPostcodePara">
+												<label>Registered Postcode</label>
+												<input type="text" id="registeredPostcode" maxlength="8" readonly/>
+											</p>
+										</fieldset>
+										<!--End Of Card Details-->
+
+										<!--Start of Address Details-->
+										<fieldset id="addressesContainer">
+											<legend>Address Details</legend>
+											<div class="addAddressContainer" id="addAddressContainerTop">
+												<a href="#" class="addAddress"><i class="fa fa-plus" aria-hidden="true"></i> Add Address</a>
+											</div>
+											<div id="addressesSurround">
+												<!--content generated automatically here-->
+											</div>
+											<div class="addAddressContainer" id="addAddressContainerBottom">
+												<a href="#" class="addAddress"><i class="fa fa-plus" aria-hidden="true"></i> Add Address</a>
+											</div>
+										</fieldset>
+										<!--End of Address Details-->
+
+										<!--Start of Authorised Persons-->
+										<fieldset id="authorisedPersonsContainer">
+											<legend>Authorised Person(s)</legend>
+											<div class="addAuthorisedPersonContainer">
+												<a href="#" class="addAuthorisedPerson"><i class="fa fa-plus" aria-hidden="true"></i> Add Authorised Person</a>
+											</div>
+											<div id="authorisedPersonsTable" class="dataTable">
+												<table id="authorisedPersonsTable">
+													<thead>
+														<tr>
+															<th>Name</th>
+															<th>Relationship</th>
+															<th>Passphrase</th>
+															<th>Passphrase Hint</th>
+															<th>&nbsp;</th>
+														</tr>
+													</thead>
+													<tbody id="authorisedPersonsTableBody">
+														<!--Content generated automatically-->
+													</tbody>
+												</table>
+											</div>
+											<div class="addAuthorisedPersonContainer">
+												<a href="#" class="addAuthorisedPerson"><i class="fa fa-plus" aria-hidden="true"></i> Add Authorised Person</a>
+											</div>
+										</fieldset>
+										<!--End of Authorised Persons-->
+
+									</div>
+									<!--End of Customer Details Container-->
+								</form>
+								<!--End of Customer Details Form-->
+							</div>
+							<!--End of Customer Details Tab-->
+
+							<!--Start of Account History Tab-->
+							<div id="accountHistoryContent" class="tabContentHide">
+								<!--<p>This is the Account History tab</p>-->
+								<h2 id="accountHistoryTitle" class="tabTitle">Account History</h2>
+
+									<!--<div id="quickLinks">
+										<span>Quick Links</span>
+										<a href="#personalDetailsContainer" title="Skip to Personal Details">Personal Details</a>
+										<a href="#addressesContainer" title="Skip to Address Details">Address Details</a>
+										<a href="#authorisedPersonsContainer" title="Skip to Authorised Persons">Authorised Persons</a>
+									</div>-->
+
+									<!--Start of Account History Form-->
+									<form id="accountHistoryForm">
+
+										<!--Start of Customer Contact History-->
+										<fieldset>
+											<legend>Customer Contact History</legend>
+											<div class="customerContactHistoryContainer">
+												<p id="searchCustomerContactHistoryForms">
+													<select>
+														<option value="ID">ID</option>
+														<option value="dateTime">Date/Time</option>
+														<option value="subject">Subject</option>
+														<option value="note">Note</option>
+														<option value="createdBy">Created By</option>
+														<option value="done">Done</option>
+														<option value="actionedBy">Actioned By</option>
+													</select>
+
+													<input type="text" id="searchStringCustomerContactHistory"/>
+													<button id="clearSearchCustomerContactHistory">
+														<i class="fa fa-times hide" id="clearCustomerContactHistoryCross" aria-hidden="true"></i>
+													</button>
+													<button id="searchCustomerContactHistory">
+														<i class="fa fa-search" aria-hidden="true"></i>
+													</button>
+
+												</p>
+												<a href="#" id="createNewNote" title="Create a New Note"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;New Note</a>
+											</div>
+											<div id="CustomerContactHistoryTableContainer" class="dataTable">
+												<table id="customerContactHistoryTable" class="tablesorter">
+													<thead>
+														<tr>
+															<th id="customerContactHistoryID" class="headerSortDown">ID</th>
+															<th id="customerContactHistoryDate" class="headerSortDown">Date </th>
+															<th id="customerContactHistoryTime" class="headerSortDown">Time</th>
+															<th id="customerContactHistorySubject" class="headerSortDown">Subject</th>
+															<th id="customerContactHistoryNote" class="headerSortDown">Note</th>
+															<th id="customerContactHistoryCreatedBy" class="headerSortDown">User</th>
+															<th id="customerContactHistoryDone" class="headerSortDown">Done</th>
+															<th id="customerContactHistoryOutcome" class="headerSortDown">Outcome</th>
+															<th id="customerContactHistoryDelete">&nbsp;</th>
+														</tr>
+													</thead>
+													<tbody id="customerContactHistoryTableBody">
+														<!--Content generated automatically here-->
+													</tbody>
+												</table>
+											</div>
+										</fieldset>
+										<!--End of Customer Contact History-->
+
+										<!--Start of Transaction History-->
+										<fieldset>
+											<legend>Transaction History</legend>
+											<div class="transactionHistoryContainer">
+												<p id="transactionHistoryForms">
+													<select>
+														<option value="date">Date</option>
+														<option value="type">Type</option>
+														<option value="details">Details</option>
+														<option value="reference">Reference</option>
+														<option value="debit">Debit</option>
+														<option value="credit">Credit</option>
+														<option value="balance">Balance</option>
+														<option value="takenBy">Taken By</option>
+													</select>
+
+													<input type="text" id="searchStringTransactionHistory"/>
+													<button id="clearSearchTransactionHistory">
+														<i class="fa fa-times hide" id="clearTransactionHistoryCross" aria-hidden="true"></i>
+													</button>
+													<button id="searchTransactionHistory">
+														<i class="fa fa-search" aria-hidden="true"></i>
+													</button>
+												</p>
+												<a href="#" id="createNewTransaction" title="Create a New Transaction (Collections Only)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;New Transaction</a>
+											</div>
+											<div id="transactionHistoryTableContainer" class="dataTable">
+												<table id="transactionHistoryTable" class="tablesorter">
+													<thead>
+														<tr>
+															<th id="transactionHistoryDate" class="headerSortDown">Date </th>
+															<th id="transactionHistoryType" class="headerSortDown">Type</th>
+															<th id="transactionHistoryDetails" class="headerSortDown">Details</th>
+															<th id="transactionHistoryReference" class="headerSortDown">Reference</th>
+															<th id="transactionHistoryDebitAmount" class="headerSortDown">Debit</th>
+															<th id="transactionHistoryCreditAmount" class="headerSortDown">Credit</th>
+															<th id="transactionHistoryBalance" class="headerSortDown">Balance</th>
+															<th id="transactionHistoryTakenBy" class="headerSortDown">Taken By</th>
+														</tr>
+													</thead>
+													<tbody id="transactionHistoryTableBody">
+														<!--content generated automatically-->
+													</tbody>
+												</table>
+											</div>
+										</fieldset>
+										<!--End of Transaction History-->
+
+										<!--Start of Previous iTalk Accounts-->
+										<fieldset>
+											<legend>Previous iTalk Accounts</legend>
+											<div class="previousiTalkAccountsContainer">
+												<p id="previousiTalkAccountsForms">
+													<select>
+														<option value="customerReference">Customer Reference</option>
+														<option value="package">Package</option>
+														<option value="CLI">CLI</option>
+														<option value="activationDate">Activation Date</option>
+														<option value="terminationDate">Termination Date </option>
+														<option value="status">Status</option>
+													</select>
+													<input type="text" id="searchStringPreviousiTalkAccounts"/>
+													<button id="clearSearchPreviousiTalkAccounts">
+														<i class="fa fa-times hide" id="clearPreviousiTalkAccountsCross" aria-hidden="true"></i>
+													</button>
+													<button id="searchPreviousiTalkAccounts">
+														<i class="fa fa-search" aria-hidden="true"></i>
+													</button>
+												</p>
+											</div>
+											<div id="previousiTalkAccountsTableContainer" class="dataTable">
+												<table id="previousiTalkAccountsTable" class="tablesorter">
+													<thead>
+														<tr>
+															<th class="headerSortDown">Customer Ref.</th>
+															<th class="headerSortDown">Package</th>
+															<th class="headerSortDown">CLI</th>
+															<th class="headerSortDown">Activation Date</th>
+															<th class="headerSortDown">Termination Date</th>
+															<th class="headerSortDown">Status</th>
+															<th>Go To Account</th>
+														</tr>
+													</thead>
+													<tbody id="previousiTalkAccountsTableBody">
+														<!--content generated automatically-->
+													</tbody>
+												</table>
+											</div>
+										</fieldset>
+										<!--End of Previous iTalk Accounts-->
+
+									</form>
+									<!--End of Account History Form-->
+
+							</div>
+							<!--End of Account History Tab-->
+
+							<!--Start of Package/Line Status Tab-->
+							<div id="packageLineContent" class="tabContentHide">
+								<h2 id="packageLineDetailsTitle" class="tabTitle">Package/Line Details</h2>
+								<form id="packageLineDetailsForm">
+									<div id="packageLineStatusFormLeft">
+										<p id="packageLineStatusCLIContainer">
+											<label>CLI</label>
+											<input type="text" id="packageDetailsCLI" readonly/>
+										</p>
+										<p id="packageLineStatusPackageContainer">
+											<label>Package</label>
+											<input type="text" id="packageDetailsPackage" readonly/>
+										</p>
+										<p id="packageLineStatusStatusContainer">
+											<label>Status</label>
+											<input type="text" id="packageDetailsStatus" readonly/>
+											<a href="#" id="editStatus"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+										</p>
+									</div>
+									<div id="packageLineStatusFormRight">
+										<p id="packageLineStatusStartDateContainer">
+											<label>Start Date</label>
+											<input type="date" id="packageDetailsStartDate" readonly/>
+										</p>
+										<p id="packageLineStatusLiveDateContainer">
+											<label>Live Date</label>
+											<input type="date" id="packageDetailsLiveDate" readonly/>
+										</p>
+										<p id="packageLineStatusRenewalDateContainer">
+											<label>Renewal Date</label>
+											<input type="date" id="packageDetailsRenewalDate" readonly/>
+										</p>
+									</div>
+								</form>
+								<!--Account Activation Stages here (for JO)-->
+							</div>
+							<!--End of Package/Line Status Tab-->
+
+							<!--Start of Tasks Tab-->
+							<div id="tasksContent" class="tabContentHide">
+								<h2 id="taskTitle" class="tabTitle">Tasks (For this Customer Only)</h2>
+								<div id="taskButtonContainer">
+									<a href="#" id="newTask" class="taskButton" title="Add a New Task"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;New Task</a>
+									<a href="#" id="allTasks" class="taskButton" title="See all Tasks"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;See All Tasks</a>
+								</div>
+								<div id="tasksContainer" class="dataTable">
+									<table id="tasksTable">
+										<thead>
+											<th>&nbsp;</th>
+											<th>Title</th>
+											<th>Description</th>
+											<th>Created By</th>
+											<th>Created</th>
+											<th>Assigned To</th>
+											<th>Priority</th>
+											<th>Due</th>
+											<th>&nbsp;</th>
+										</thead>
+										<tbody id="tasksTableBody">
+											<!--Content generated automatically-->
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!--End of Tasks Tab-->
+
+							<!--Start of Complaints Tab-->
+							<div id="complaintsContent" class="tabContentHide">
+								<h2 id="complaintsTitle" class="tabTitle">Complaints (For This Customer Only)</h2>
+								<div id="complaintsMenu">
+									<a href="#" id="newComplaint" class="complaintsButton buttonBasic"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;New</a>
+									<a href="#" id="findComplaint" class="complaintsButton buttonBasic"><i class="fa fa-binoculars" aria-hidden="true"></i>&nbsp;Find</a>
+									<a href="#" id="viewAllComplaints" class="complaintsButton buttonBasic"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;View All</a>
+									<div id="searchComplaintsTools">
+										<input type="text" id="searchComplaints"/>
+										<input type="date" id="searchComplaintsDate"/>
+										<select id="searchComplaintsCriterion">
+											<option value="No Selection" selected="selected">No Selection...</option>
+											<option value="Complaint Reference">Complaint Reference</option>
+											<option value="Customer Reference">Customer Reference</option>
+											<option value="Date">Date</option>
+										</select>
+										<button id="searchForComplaints" class="buttonBasic">
+											<i class="fa fa-search" aria-hidden="true"></i>
+										</button>
+									</div>
+								</div>
+								<div id="complaintsContent">
+									<div id="complaintsContainer" class="dataTable">
+										<table id="complaintsTable">
+											<thead>
+												<tr>
+													<th>Ref.</th>
+													<th>Date Created</th>
+													<th>Taken By</th>
+													<th>Complaints Agent</th>
+													<th>Status</th>
+													<th>Deadline</th>
+													<th>Final Deadline</th>
+													<th>&nbsp;</th>
+												</tr>
+											</thead>
+											<tbody id="complaintsTableBody">
+												<!--Content displayed automatically-->
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!--End of Complaints Tab-->
+
+						</div>
+						<!--End of Tab Content-->
+
+					</div>
+					<!--End of Customer Details Container-->
+
+					<!--Start of the Add Authorised Person Pop Out Container-->
+					<div id="newAuthorisedPersonPopOutPane">
+						<div id="newAuthorisedPersonPopOutPaneContent">
+							<span id="closePerson">X</span>
+							<h2 id="newAuthorisedPersonTitle">New Authorised Person</h2>
+							<div id="authorisedPersonErrorsContainer">
+								<div id="authorisedPersonErrorsLeft">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</div>
+								<div id="authorisedPersonErrorsRight">
+									<p id="authorisedPersonsErrorsInstructions">
+										The following errors need to be actioned:
+									</p>
+									<ul id="authorisedPersonsErrors">
+									</ul>
+								</div>
+							</div>
+
+							<form id="newAuthorisedPersonForm">
+
+								<p id="newAuthorisedPersonNameContainer">
+									<p id="newAuthorisedPersonNameTitleContainer" class="personContainer">
+										<label>Title</label>
+										<select id="newAuthorisedPersonNameTitle">
+											<option value="No Value" selected>Please Select..</option>
+											<option value="Prefer Not To Say">Prefer Not To Say</option>
+											<option value="Mr">Mr</option>
+											<option value="Mrs">Mrs</option>
+											<option value="Miss">Miss</option>
+											<option value="Ms">Ms</option>
+											<option value="Sir">Sir</option>
+											<option value="Lord">Lord</option>
+											<option value="Lady">Lady</option>
+											<option value="Dame">Dame</option>
+										</select>
+									</p>
+									<p id="newAuthorisedPersonNameForenameContainer" class="personContainer">
+										<label>Forename<label>
+										<input type="text" id="newAuthorisedPersonNameForename" class="personContainer">
+									</p>
+									<p id="newAuthorisedPersonNameSurnameContainer" class="personContainer">
+										<label>Surname</label>
+										<input type="text" id="newAuthorisedPersonNameSurname" class="personContainer">
+									</p>
+								</p>
+								<p id="relationshipContainer" class="personContainer">
+									<label>Relationship<label>
+									<select id="newAuthorisedPersonRelationship">
+										<option value="No Value">Please Select...</option>
+										<option value="Mother">Mother</option>
+										<option value="Daughter">Daughter</option>
+										<option value="Father">Father</option>
+										<option value="Son">Son</option>
+										<option value="Husband">Husband</option>
+										<option value="Wife">Wife</option>
+										<option value="Civil Partner">Civil Partner</option>
+										<option value="Friend">Friend</option>
+										<option value="Other">Other</option>
+									</select>
+								</p>
+								<p id="passwordContainer" class="personContainer">
+									<label>PassPhrase<label>
+									<input type="text" id="newAuthorisedPersonPassphrase">
+								</p>
+								<p id="passwordHintContainer" class="personContainer">
+									<label>PassPhrase Hint<label>
+									<input type="text" id="newAuthorisedPersonPassphraseHint">
+								</p>
+								<div id="authorisedPersonsControlPanel">
+									<button id="resetPerson" class="buttonBasic">
+										<i class="fa fa-undo" aria-hidden="true"></i>
+										&nbsp;
+										Reset
+									</button>
+									<button id="savePerson" class="buttonBasic">
+										<i class="fa fa-floppy-o" aria-hidden="true"></i>
+										&nbsp;
+										Save
+									</button>
+								</div>
+
+							</form>
+						</div>
+					</div>
+					<!--End of the Add Authorised Person Pop Out Container-->
+
+					<!--Start of new task pop out pane-->
+					<div id="newTaskPopOutPane">
+						<div id="newTaskPopOutPaneContent">
+							<span id="closeTask">X</span>
+							<h2 id="newTaskTitle">New Task</h2>
+							<form id="newTaskForm">
+								<p id="taskErrors" class="errors">
+								</p>
+								<p id="findCustomerContainer">
+									<label>Customer</label>
+									<input type="text" id="searchCustomerSearchString"/>
+									<input type="date" id="searchCustomerSearchStringDate"/>
+									<select id="taskSearchCustomerCriterion">
+										<option value="No Selection" selected="selected">No Selection...</option>
+										<option value="Customer ID">Customer ID</option>
+										<option value="Full Name">Full Name</option>
+										<option value="Forename">Forename</option>
+										<option value="Surname">Surname</option>
+										<option value="Date Of Birth">Date Of Birth</option>
+									</select>
+									<button id="searchCustomer" class="buttonBasic"/>
+										<i class="fa fa-search" aria-hidden="true"></i>
+									</button>
+									<input type="button" value="Use Current" class="buttonBasic" id="useCurrentCustomer"/>
+								</p>
+								<div id="customerSearchResultsContainer">
+									<strong>Your Search Results</strong>
+									<select id="customerSearchResultsContainer">
+										<option value="No Select">No Selection...</option>
+										<!--<option value="IT000000">IT000000 - Miss Ela Neous</option>-->
+									</select>
+								</div>
+								<p id="priorityContainer">
+										<label>Priority</label>
+										<select id="prioritySelect">
+											<option value="normal" id="normalPriority" selected="selected">Normal</option>
+											<option value="Medium" id="mediumPriority">Medium</option>
+											<option value="High" id="highPriority">High</option>
+										</select>
+								</p>
+								<p id="titleContainer">
+									<label>Title</label>
+									<input type="text" id="taskTitle"/>
+								</p>
+								<p id="descriptionContainer">
+									<label>Description</label>
+									<textarea id="description"></textarea>
+								</p>
+								<p id="commentsContainer">
+									<label>Comments</label>
+									<textarea id="comments"></textarea>
+								</p>
+								<p id="assignToContainer">
+									<label>Assign To</label>
+									<select id="assignToUsers">
+										<option value="No Selection">No Selection...</option>
+										<option value="User 1">User 1</option>
+										<option value="User 2">User 2</option>
+										<option value="User 3">User 3</option>
+									</select>
+								</p>
+								<p id="dueDateContainer">
+									<label>Due Date</label>
+									<input type="date" id="dueDate"/>
+								</p>
+								<p id="createdByContainer">Created By: <span id="userCreatedBy">[user]</span></p>
+								<p id="dateCreatedContainer">Date Created: <span id="dateCreated">[date]</span></p>
+								<div id="buttonContainer">
+									<input type="button" value="Create" class="buttonBasic" id="submitTask"/>
+									<i id="submitSpinner" class="fa fa-spinner fa-pulse fa-3x fa-fw hidden"></i>
+									<input type="button" value="Clear" class="buttonBasic" id="clearFields"/>
+									<i id="clearSpinner" class="fa fa-spinner fa-pulse fa-3x fa-fw hidden"></i>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!--End of new task pop out pane-->
+
+					<!--Start of New Complaint Form-->
+
+					<!--Start of New Complaint Page 1-->
+					<div id="newComplaintFirstPopOutPane" class="newComplaintPopOutPane">
+						<div id="newComplaintPopOutPanePageOneContent" class="newComplaintPopOutPaneContent">
+							<span id="closeComplaintPageOne" class="closeComplaint">X</span>
+							<h2 id="newComplaintTitlePageOne" class="newComplaintTitle">New Complaint - Page 1 of 3</h2>
+							<form id="newComplaintFormOne" class="newComplaintForm">
+								<div id="complaint1Errors" class="errors">
+									<p>Please fix the following errors in order to continue:</p>
+										<ul id="errorList1">
+										</ul>
+								</div>
+								<div id="complaintCustomerReference">
+									<label>Customer Reference</label>
+									<input type="text" id="customerReferenceComplaint" readonly/>
+									<a href="#" id="searchCustomerIDComplaint">
+										<i class="fa fa-search" aria-hidden="true"></i>
+									</a>
+								</div>
+								<div id="customerDetailsContainerComplaint">
+									<label>Customer Name</label>
+									<div id="customerNameInputComplaint">
+										<input type="text" id="customerNameTitleComplaint" class="customerNameComplaint" placeholder="Title">
+										<input type="text" id="customerNameForenameComplaint" class="customerNameComplaint" placeholder="Forename">
+										<input type="text" id="customerNameSurnameComplaint" class="customerNameComplaint" placeholder="Surname">
+									</div>
+								</div>
+								<div id="customerAddressContainer">
+									<label>Customer Address</label>
+									<div id="customerAddressInputComplaint">
+										<input type="text" id="customerAddressHouseFlatNoComplaintComplaint" class="customerAddressComplaint" placeholder="House/Flat No">
+										<input type="text" id="customerAddressStreetComplaint" class="customerAddressComplaint" placeholder="Street">
+										<input type="text" id="customerAddressTownComplaint" class="customerAddressComplaint" placeholder="Town">
+										<input type="text" id="customerAddressCityComplaint" class="customerAddressComplaint" placeholder="City">
+										<input type="text" id="customerAddressCountyComplaint" class="customerAddressComplaint" placeholder="County">
+										<input type="text" id="customerAddressPostCodeComplaint" class="customerAddressComplaint" placeholder="Postcode">
+									</div>
+								</div>
+								<div id="agentTakingContainer">
+									<label>Agent Taking Complaint</label>
+									<p id="agentTakingComplaint"></p>
+								</div>
+								<div id="dateComplaintTakenContainer">
+									<label>Date Complaint Taken</label>
+									<p id="dateComplaintTaken"></p>
+								</div>
+								<div id="timeComplaintTakenContainer">
+									<label>Time Complaint Taken</label>
+									<p id="timeComplaintTaken"></p>
+								</div>
+								<div id="agentConfirmContainer">
+									<p id="agentConfirmInstructions">
+										I have read and checked all the details above with the customer and are deemed correct.
+										<input type="checkbox" id="agentConfirmCheckbox">
+									</p>
+
+								</div>
+								<div id="buttonsBottomPage1">
+									<a href="#" id="clearPageOne" class="buttonBasic clearComplaintFields" title="Clear All Fields">Clear All</a>
+									<button id="moveToComplaintPageTwo" class="buttonBasic moveToNextPageComplaint" title="Confirm these details and go to the next page">
+										<i class="fa fa-check" aria-hidden="true"></i>
+										<!--<i class="fa fa-arrow-right" id="arrowRightButton" aria-hidden="true"></i>-->
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!--End of New Complaint Page 1-->
+
+					<!--Start of New Complaint Page 2-->
+					<div id="newComplaintSecondPopOutPane" class="newComplaintPopOutPane">
+						<div id="newComplaintSecondPagePopOutPaneContent" class="newComplaintPopOutPaneContent">
+							<h2 id="newComplaintPage2Title" class="newComplaintTitle">New Complaint - Page 2 of 3</h2>
+							<form id="newComplaintForm2" class="newComplaintForm">
+								<div id="complaint2Errors" class="errors">
+									<p>Please fix the following errors in order to continue:</p>
+										<ul id="errorList2">
+										</ul>
+								</div>
+								<div id="regardingContainer">
+									<label>What is the complaint regarding?</label>
+										<select id="regardingWhat">
+											<option name="regarding" value="No Select" selected>Please Select...</option>
+											<option name="regarding" value="sales">Sales</option>
+											<option name="regarding" value="finance">Finance</option>
+											<option name="regarding" value="service">Service</option>
+											<option name="regarding" value="package">Package</option>
+											<option name="regarding" value="other">Other</option>
+										</select>
+										<div id="otherSelectionContainerText">
+											<label>Please State </label>
+											<input type="text" id="regardingOtherText">
+										</div>
+									</div>
+									<div id="regardingAgent">
+										<label>Is the complaint regarding an agent?</label>
+										<div id="regardingAgentSelectionContainer">
+											<select id="regardingAgentSelects">
+												<option name="regardingAgent" value="No Selection" selected>Please Select...</option>
+												<option name="regardingAgent" value="yes">Yes</option>
+												<option name="regardingAgent" value="no">No</option>
+												<option name="regardingAgant" value="dont know">Don't Know</option>
+												<option name="regardingAgant" value="prefer not to say">Prefer Not to Say</option>
+											</select>
+										</div>
+										<div id="agentNameContainer">
+											<label>What is the name of the agent? </label>
+											<input type="text" id="regardingAgentText"/>
+										</div>
+									</div>
+									<div id="complaintContainer">
+										<label>Complaint</label>
+										<p id="instructionsContainer">
+											Please give as much details about the complaint, including:
+												<ul>
+													<li>The events that lead up to the main incident</li>
+													<li>The date and time of each of the events</li>
+													<li>The date and time of each of the events</li>
+													<li>Any Agents and/or departments that were/are involded in the incident</li>
+												</ul>
+											</p>
+										<textarea id="complaintMain"></textarea>
+									</div>
+									<div id="solutionContainer">
+										<label>What solution is the customer seeking?</label>
+										<textarea id="customersSolutionMain"></textarea>
+									</div>
+									<div id="commentsContainer">
+										<label>Additional Agent Comments</label>
+										<textarea id="agentsCommentMain"></textarea>
+									</div>
+									<div id="buttonsBottomPage2">
+										<a href="#" id="clearPageTwo" class="buttonBasic clearComplaintFields" title="Clear All Fields">Clear All</a>
+										<button id="moveToComplaintPageThree" class="buttonBasic moveToNextPageComplaint" title="Confirm these details and go to the next page">
+											<i class="fa fa-arrow-right" id="arrowRightButton" aria-hidden="true"></i>
+										</button>
+									</div>
+								</form>
+						</div>
+					</div>
+					<!--End of New Complaint Page 2-->
+
+					<!--Start of New Complaint Page 3-->
+					<div id="newComplaintThirdPopOutPane" class="newComplaintPopOutPane">
+						<div id="newComplaintThirdPagePopOutPaneContent" class="newComplaintPopOutPaneContent">
+							<h2 id="newComplaintPage3Title" class="newComplaintTitle">New Complaint - Page 3 of 3</h2>
+							<form id="newComplaintForm3" class="newComplaintForm">
+								<div id="complaint3Errors" class="errors">
+									<i class="fa fa-times" aria-hidden="true"></i>
+									<p>Please fix the following errors in order to continue:</p>
+										<ul id="errorList3">
+										</ul>
+								</div>
+								<p id="complaintReferenceNumberContainer">Complaint Reference Number: <span id="complaintReferenceNumber"></span></p>
+								<p><strong id="instructionMain">AGENT: Please read this word from word</strong></p>
+								<p id="script1">
+									Thank you for your feedback, your complaint reference number is <span id="complaintReferenceNumber2"></span>. Please quote your customer reference number and your complaint reference number next time you contact us with regards to this complaint.
+									<br/>You will recieve a letter in the post acknowledging your complaint with 14 days, after this we will review and investigate your comments.
+									<br/>As soon as we have investigated the matter we will write to you with a solution and make the relevant improvements to the service(s) that your are unhappy with.
+									<br/>iTalk would like to apologise for not meeting your standards today and would like assure all of our customers that we are making every effort to improve our services and the products we offer.
+								</p>
+								<label>
+									<i class="fa fa-question-circle" aria-hidden="true"></i>
+									&nbsp;
+									Is there anything else you would like to add to your case?
+								</label>
+								<select id="customerAdditionalCommentsYesNo">
+									<option value="Yes">Yes</option>
+									<option value="No" selected>No</option>
+								</select>
+								<textarea id="customerAdditionalComments"></textarea>
+								<p id="furtherQuestions">
+									<i class="fa fa-question-circle" aria-hidden="true"></i>
+									&nbsp;
+									Do you have any further questions before we submit your complaint?</p>
+								<p id="instructionsSubContainer">
+									<em id="instructionsSub">AGENT: If you cannot answer a question, either transfer the customer onto a manager or a complaints advisor OR take the number for teh customer, find the information the customer requires and get back to them</em>
+								</p>
+								<div id="buttonsBottomPage2">
+									<button id="submitComplaint" class="buttonBasic moveToNextPageComplaint" title="Submit the complaint">
+										<i class="fa fa-check" aria-hidden="true"></i>
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!--End of New Complaint Page 3-->
+
+					<!--End of New Complaint Form-->
+
+					<!--Start of Change password pop out menu-->
+					<div id="changePasswordContainer">
+						<div id="changePasswordContent">
+							<span id="closePasswordChange" class="closePasswordChange">X</span>
+							<h2 id="passwordChangeTitle" class="passwordChangeTitle">Change Passphrase and Hint</h2>
+							<div id="changePasswordErrors">
+								<div id="passphraseErrorsLeft">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</div>
+								<div id="passphraseErrorsRight">
+									<p id="changePassphraseErrorInstruction">The following errors need to be addressed in order to proceed:</p>
+									<ul id="passPhraseErrors">
+										<!--Errors Generated By javascript-->
+									</ul>
+								</div>
+							</div>
+							<form id="changePasswordAndHintForm">
+								<p id="oldPassphraseContainer">
+									<label>Old Passphrase</label>
+									<input type="text" id="oldPassphrase" placeholder="Enter Old Passphrase"/>
+								</p>
+								<p id="newPassphraseContainer">
+									<label>New Passphrase</label>
+									<input type="text" id="newPassphrase" placeholder="Enter New Passphrase"/>
+								</p>
+								<p id="confirmPassphraseContainer">
+									<label>Confirm Passphrase</label>
+									<input type="text" id="confirmPassphrase" placeholder="Confirm New Passphrase"/>
+								</p>
+								<p id="newPassphraseHintContainer">
+									<label>New Passphrase Hint</label>
+									<input type="text" id="newPassphraseHint" placeholder="New Passphrase Hint"/>
+								</p>
+								<div id="controlPanelPassphrase">
+									<button id="clearAll" title="Clear All Fields" class="buttonBasic"><i class="fa fa-eraser" aria-hidden="true"></i></button>
+									<button id="submitPassphraseForm" title="Submit The Form" class="buttonBasic"><i class="fa fa-check" aria-hidden="true"></i></button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!--End of Change password pop out menu-->
+
+					<!--Start of the Pop Out Dial Pad-->
+					<div id="dialPadContainer">
+						<div id="dialPad">
+							<span id="closeDialPad" class="closeDialPad">Close Dial Pad</span>
+							<input type="text" id="phoneNumber" />
+							<button id="dial" class="topButton">
+								<i class="fa fa-phone" aria-hidden="true"></i>
+							</button>
+							<button id="delete" class="topButton">
+								<i class="fa fa-arrow-left" aria-hidden="true"></i>
+							</button>
+							<div id="numberRow1" class="numberRow">
+								<button id="number1" class="number">1</button>
+								<button id="number2" class="number">2</button>
+								<button id="number3" class="number">3</button>
+							</div>
+							<div id="numberRow2" class="numberRow">
+								<button id="number4" class="number">4</button>
+								<button id="number5" class="number">5</button>
+								<button id="number6" class="number">6</button>
+							</div>
+							<div id="numberRow3" class="numberRow">
+								<button id="number7" class="number">7</button>
+								<button id="number8" class="number">8</button>
+								<button id="number9" class="number">9</button>
+							</div>
+							<div id="numberRow4" class="numberRow">
+								<button id="numberStar" class="number">*</button>
+								<button id="number0" class="number">0</button>
+								<button id="numberHash" class="number">#</button>
+							</div>
+						</div>
+					</div>
+					<!--End of the Pop Out Dial Pad-->
+
+					<!--Start of take payment pop out pane-->
+					<div id="takePaymentContainer">
+						<div id="takePaymentInner">
+							<span id="closeTakePayment" class="closeTakePayment">X</span>
+							<h2 id="takePaymentTitle" class="changePaymentTitle">Take Payment From Customer</h2>
+							<div id="takePaymentErrorsMain">
+								<div id="takePaymentLeft">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</div>
+								<div id="takePaymentRight">
+									<p id="takePaymentInstruction">The following errors need to be addressed in order to proceed:</p>
+									<ul id="takePaymentErrors">
+										<!--Errors Generated By javascript-->
+									</ul>
+								</div>
+							</div>
+							<form id="takePaymentForm">
+								<div id="amountTakenContainer">
+									<label>How much will be debited from the customer?</label>
+									<p>
+										<span>£</span>
+										<input type="text" id="amountTaken">
+									</p>
+								</div>
+								<div id="paymentCardToUseContainer">
+									<label>What payment card would the customer like to use today?</label>
+									<p>
+										<input type="radio" class="cardUse" name="paymentCard" id="paymentCardCurrent" value="1">Card Ending in <span id="cardEnding">Unknown</span>
+										<input type="radio" class="cardUse" name="paymentCard" id="paymentCardOther" value="Other Card">Use Another Card<br>
+									</p>
+								</div>
+								<div id="paymentCardDetailsContainer">
+									<div id="paymentCardType">
+										<label>Card Type</label>
+										<select id="paymentCardTypeSelect" class="inputSame">
+											<option value="No Select">Please Select..</option>
+											<option value="Visa Debit">Visa Debit</option>
+											<option value="Visa Credit">Visa Credit</option>
+											<option value="Mastercard">Mastercard</option>
+											<option value="Switch">Switch</option>
+											<option value="Solo">Solo</option>
+											<option value="American Express">American Express</option>
+											<option value="Other">Other</option>
+										</select>
+										<input type="text" id="paymentOtherCardType" class="elementHide"/>
+									</div>
+									<div id="paymentCardNoContainer">
+										<label>Card No</label>
+										<input type="text" id="paymentCardNo" class="inputSame" maxlength="16" placeholder="000000000000000"/>
+									</div>
+									<div id="paymentStartDateContainer">
+										<label>Start Date</label>
+										<div>
+											<input type="text" id="paymentStartDateMM" maxlength="2" placeholder="MM"/>
+											<input type="text" id="paymentStartDateYYYY" maxlength="4" placeholder="YYYY"/>
+										</div>
+									</div>
+									<div id="paymentExpiryDateContainer">
+										<label>Expiry Date</label>
+										<div>
+											<input type="text" id="paymentExpiryDateMM" maxlength="2" placeholder="MM"/>
+											<input type="text" id="paymentExpiryDateYYYY" maxlength="4" placeholder="YYYY"/>
+										</div>
+									</div>
+									<div id="paymentIssueNoContainer">
+										<label>Issue No</label>
+										<input type="text" id="paymentIssueNo" maxlength="3"/>
+									</div>
+									<div id="paymentSecurityCodeContainer">
+										<label>Security Code</label>
+										<input type="text" id="paymentSecurityNo" maxlength="3"/>
+									</div>
+									<div id="paymentFirstLineOfAddressContainer">
+										<label>First Line Of Address</label>
+										<input type="text" id="paymentFirstLineOfAddress" class="inputSame"/>
+									</div>
+									<div id="paymentPostCodeContainer">
+										<label>Post Code</label>
+										<input type="text" id="paymentPostCode" class="inputSame"/>
+									</div>
+								</div>
+								<div id="detailsConfirmContainer">
+									<div>
+										<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+									</div>
+									<input type="checkbox" id="detailsConfirm"/>
+									<span id="detailsConfirmStatement">
+										I have checked and verified the details (by reading them back) and I am happy with the following:
+											<ul id="confirmationPoints">
+												<li>Can confirm that the details are true and correct</li>
+												<li>All agent details for this transaction are true and correct</li>
+												<li>If any details are incorrect it is YOUR responsiblity to get this changed.</li>
+												<li>I am happy to proceed with the transaction.</li>
+											</ul>
+										<br>
+
+									</span>
+								</div>
+								<div id="controlPanelContainer">
+									<button id="resetPaymentForm" class="buttonBasic" title="Clear all the fields and reset the form">
+										<i class="fa fa-undo" aria-hidden="true"></i>
+									</button>
+									<button id="submitPayment" class="buttonBasic" title="Submit the form and take the payment">
+										<i class="fa fa-check" aria-hidden="true"></i>
+									</button>
+								</div>
+							</form>
+
+						</div>
+					</div>
+					<!--End of take payment pop out pane-->
+
+					<!--Start of New Note Pop Out Pane-->
+					<div id="newNoteContainer">
+						<div id="newNoteInner">
+							<span id="closeNewNote" class="closeNewNote">X</span>
+							<h2 id="newNoteTitle" class="newNoteTitle">New Note</h2>
+							<div id="newNoteErrorsMain">
+								<div id="newNoteLeft">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</div>
+								<div id="newNoteRight">
+									<p id="newNoteInstruction">The following errors need to be addressed in order to proceed:</p>
+									<ul id="newNoteErrors">
+										<!--Errors Generated By javascript-->
+									</ul>
+								</div>
+							</div>
+							<form id="newNoteForm">
+								<div id="newNoteAgentContainer">
+									<label>Agent</label>
+									<p id="newNoteAgent"></p>
+								</div>
+								<div id="newNoteDateContainer">
+									<label>Date</label>
+									<p id="newNoteDate"></p>
+								</div>
+								<div id="newNoteTimeContainer">
+									<label>Time</label>
+									<p id="newNoteTime"></p>
+								</div>
+								<div id="newNoteSubjectContainer">
+									<label>Subject</label>
+									<input type="text" id="newNoteSubject" maxlength="100" />
+									<em id="newNoteSubjectInstruction">Max 100 Characters</em>
+								</div>
+								<div id="newNoteNoteContainer">
+									<label>Note</label>
+									<textarea id="newNoteNote"></textarea>
+								</div>
+								<div id="newNoteDoneContainer">
+									<label>Done</label>
+									<input type="checkbox" id="newNoteDone"/>
+								</div>
+								<div id="newNoteOutcomeContainer">
+									<label>Outcome</label>
+									<textarea id="newNoteOutcome"></textarea>
+								</div>
+								<div id="newNoteControlPanel">
+									<button id="newNoteClearAllFields" class="buttonBasic"><i class="fa fa-undo" aria-hidden="true"></i></button>
+									<button id="newNoteSubmitForm" class="buttonBasic"><i class="fa fa-check" aria-hidden="true"></i></button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!--End of New Note Pop Out Pane-->
+
+					<!--Start of new Transaction pop out pane-->
+					<div id="newTransactionContainer">
+						<div id="newTransactionInner">
+							<span id="closeNewTransaction" class="closeNewTransaction">X</span>
+							<h2 id="newTransactionTitle" class="newTransactionTitle">New Transaction</h2>
+							<div id="newTransactionErrorsMain">
+								<div id="newTransactionLeft">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</div>
+								<div id="newTransactionRight">
+									<p id="newTransactionInstruction">The following errors need to be addressed in order to proceed:</p>
+									<ul id="newTransactionErrors">
+										<!--Errors Generated By javascript-->
+									</ul>
+								</div>
+							</div>
+							<form id="newTransactionForm">
+								<div id="transactionType1Container">
+									<label>Is this transaction coming from the customer</label>
+									<div id="transactionType1ContainerInner">
+										<span id="transactionCustomerYesContainer" class="transactionCustomerContainer"><input type="radio" id="transactionCustomerYes" name="transactionCustomerContainer">Yes</span>
+										<span id="transactionCustomerNoContainer" class="transactionCustomerContainer" ><input type="radio" id="transactionCustomerNo" name="transactionCustomerContainer">No</span>
+									</div>
+								</div>
+
+								<!--Show/hide on demand-->
+								<div id="newTransactionMain">
+
+									<div id="newTransactionDateContainer">
+										<label>Date Taken</label>
+										<p id="newTransactionDate"></p>
+									</div>
+
+									<div id="newTransactionAgentContainer">
+										<label>Taken By</label>
+										<input type="text" readonly id="newTransactionAgent"/>
+										<a href="#" id="editNewTransactionAgent"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+									</div>
+
+									<div id="newTransactionTypeContainer">
+										<label>Transaction Type</label>
+										<input type="text" id="transactionType"/>
+									</div>
+
+									<div id="newTransactionDetailsContainer">
+										<label>Transaction Details</label>
+										<textarea id="newTransactionDetails"></textarea>
+									</div>
+
+									<div id="newTransactionReferenceContainer">
+										<label>Transaction Reference</label>
+										<input type="text" id="newTransactionReference"/>
+									</div>
+
+									<div id="newTransactionCurrentBalanceContainer">
+										<label>Current Balance</label>
+										<span class="newTransactionCurrencySign">£</span><input type="text" readonly id="newTransactionCurrentBalance"/>
+									</div>
+
+									<div id="newTransactionCreditDebitContainer">
+										<label>Credit/Debit</label>
+										<select id="newTransactionCreditDebitSelect">
+											<option value="No Select">Please Select..</option>
+											<option value="Credit">Credit</option>
+											<option value="Debit">Debit</option>
+										</select>
+									</div>
+
+									<div id="newTransactionAmountContainer">
+										<label>Amount</label>
+										<span class="newTransactionCurrencySign">£</span><input type="text" id="newTransactionAmount"/>
+									</div>
+
+									<div id="newTransactionNewBalanceContainer">
+										<label>New Balance</label>
+										<span class="newTransactionCurrencySign">£</span><input type="text" readonly id="newTransactionNewBalance"/><a href="#" id="refreshBalance"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+									</div>
+
+								</div>
+
+								<div id="newTransactionControlPanel">
+									<button id="newTransactionResetForm" class="buttonBasic"><i class="fa fa-undo" aria-hidden="true"></i></button>
+									<button id="submitTransaction" class="buttonBasic"><i class="fa fa-check" aria-hidden="true"></i></button>
+								</div>
+
+							</form>
+						</div>
+					</div>
+					<!--End of new Transaction pop out pane-->
+
+				</div>
+				<!--End of Main Content Inner left-->
+
+				<!--Start of Main Content Right-->
+				<div id="contentRight">
+
+					<!--Start of Asterisk Phone Container-->
+					<div id="phoneContainer">
+
+						<!--Construct the light box that will offer help on th phone system-->
+						<a href="#" id="help" title="Click for help"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+						<h2 id="italkPhoneTitle"><span id="italkLogoPhoneSpan"><img alt="iTalk Logo" id="iTalkLogoPhone" src="images/logo.gif"/></span> Phone</h2>
+						<p id="queueName">Queue: <br><span id="queueType">[Queue Name Here]</span></p>
+						<p id="userStatusContainer">Status:
+							<select id="userStatus">
+								<option selected value="Not Ready">Not Ready</option>
+								<option value="Ready">Ready</option>
+								<option value="Break">Break</option>
+								<option value="Training">Training</option>
+							</select>
+						</p>
+
+						<a href="#" id="dialPadShowHide" class="buttonBasic">Show Dial Pad</a>
+						<div id="phoneQueueContainer">
+							<h2 id="callsInQueueTitle">Calls in Queue</h2>
+							<p id="unansweredCallsContainer">Unanswered calls: <span id="numberAnsweredCalls">[0]<span></p>
+							<div id="queueMain">
+								<a href="#" class="inboundCall answered">01216567789</a>
+								<a href="#" class="inboundCall inProgress">01445414541</a>
+								<a href="#" class="inboundCall notAnswered" title="Click to answer">05645656451</a>
+							</div>
+						</div>
+
+					</div>
+					<!--End of Asterisk Phone Container-->
+
+					<!--Start of Agents Tasks-->
+					<!-- <div id="agentTasks">
+							<h2>Agent Tasks Here</h2>
+					</div> -->
+					<!--End of Agents Tasks-->
+
+				</div>
+				<!--End of Main Content Right-->
+
+			</div>
+			<!--End of Main Content Outer layer-->
+
+		</div>
+		<!--End of Container-->
+
+		<script type="text/javascript" src="js/sampleArrays.js"></script>
+		<script type="text/javascript" src="js/loadData.js"></script>
+		<script type="text/javascript" src="js/functions.js"></script>
+		<script type="text/javascript" src="js/indexLoad.js"></script>
+		<script type="text/javascript" src="js/menuScroll.js"></script>
+		<script type="text/javascript" src="js/smoothScrolling.js"></script>
+		<script type="text/javascript" src="js/popOutBoxes.js"></script>
+	</body>
+</html>

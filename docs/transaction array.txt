@@ -1,0 +1,9 @@
+Date
+Type
+Details
+Reference
+Current Balance
+Type (Credit/Debit)
+Amount
+New Balance (Once processed)
+Agent

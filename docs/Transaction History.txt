@@ -1,0 +1,59 @@
+No: 1
+Date:01/05/2016
+Type:Activation Start
+Details:Balance Start
+Reference:Not Applicable
+Debit:0
+Credit:0
+Balance:0
+Taken By: Not Applicable
+
+No:2
+Date:01/06/2016
+Type:Bill Production
+Details:Bill produced
+Reference:Not Applicable
+Debit:0
+Credit:50
+Balance:50
+Produced/Taken By:Automatic
+
+No:3
+Date:01/07/2016
+Type:Bill Production
+Details:Bill produced
+Reference:Not Applicable
+Debit:0
+Credit:50
+Balance:100
+Taken By:Automatic
+
+No:4
+Date:01/08/2016
+Type:Bill Production
+Details:Bill produced
+Reference:Not Applicable
+Debit:0
+Credit:50
+Balance:150
+Taken By:Automatic
+
+No:5
+Date:01/09/2016
+Type:Bill Production
+Details:Bill produced
+Reference:Not Applicable
+Debit:0
+Credit:50
+Balance:200
+Taken By:Automatic
+
+No: 6
+Date:01/10/2016
+Type:Bill Payment
+Details:Bill payment as subject to payment plan
+Reference:123456
+Debit:50
+Credit:0
+Balance:150
+Taken By:Jenna Harvey
